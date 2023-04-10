@@ -30,10 +30,6 @@ steps:
       - "--quiet"
     id: Deploy
     entrypoint: gcloud
-availableSecrets:
-  secretManager:
-    - versionName: projects/1025144069076/secrets/github-ssh-key/versions/latest
-      env: "SSH_KEY"
 images:
   - >-
     $_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA
