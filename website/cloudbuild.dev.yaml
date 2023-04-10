@@ -4,7 +4,7 @@ steps:
     args:
       - -c
       - |
-        docker build --no-cache
+        docker build --no-cache \
         -t $_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA \
         -f  website/Dockerfile website
     id: Build
@@ -15,6 +15,7 @@ steps:
       - >-
         $_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA
     id: Push
+
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk:slim"
     args:
       - run
