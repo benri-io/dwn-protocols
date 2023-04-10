@@ -1,30 +1,16 @@
 steps:
-  - name: "gcr.io/cloud-builders/git"
-    secretEnv: ["SSH_KEY"]
+  - name: gcr.io/cloud-builders/docker
     entrypoint: "bash"
     args:
       - -c
       - |
-        echo "$$SSH_KEY" >> /root/.ssh/id_rsa
-        chmod 400 /root/.ssh/id_rsa
-        cp known_hosts.github /root/.ssh/known_hosts
+        docker build --no-cache
+        -t $_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA \
+        -f  website/Dockerfile website
+    id: Build
     volumes:
       - name: "ssh"
         path: /root/.ssh
-
-  - name: gcr.io/cloud-builders/docker
-    args:
-      - build
-      - >-
-        -- build-arg SSH_PRIVATE_KEY="$(cat /root/.ssh/github)"
-      - "--no-cache"
-      - "-t"
-      - >-
-        $_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA
-      - .
-      - "-f"
-      - website/Dockerfile
-    id: Build
 
   - name: gcr.io/cloud-builders/docker
     args:
