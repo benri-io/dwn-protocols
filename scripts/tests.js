@@ -16,7 +16,7 @@ const {
 const core = require("@actions/core");
 
 function testStructure(dirs) {
-  return dirs.length === 5;
+  return dirs.length === 4;
 }
 
 function testName(name) {
@@ -106,8 +106,8 @@ function testProtocols({ registeredProtocols, logger }) {
       logger.startGroup(`Protocol path: ${filePath}.`);
       const parsedFilePath = path.parse(filePath);
       const dirs = parsedFilePath.dir.split("/");
-      let name = dirs.slice(3)[0];
-      let version = dirs.slice(3)[1];
+      let name = dirs.slice(2)[0];
+      let version = dirs.slice(2)[1];
 
       if (!testStructure(dirs)) {
         logger.error(
