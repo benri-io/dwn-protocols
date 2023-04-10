@@ -20,7 +20,7 @@ We welcome contributions from the community to help improve and expand this repo
 
 ### License
 
-This repository is licensed under the MIT License.
+This repository is licensed under the Apache 2 License.
 
 ### Contact
 
