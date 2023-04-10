@@ -1,0 +1,14 @@
+{
+  "name": "yeeter",
+  "protocol_path": "protocol.json",
+  "description": "A simple DWN protocol that yeets people",
+  "long_description": "",
+  "version": "v0.0.1",
+  "authors": [
+    {
+      "name": "tbd",
+      "email": ""
+    }
+  ],
+  "tags": ["yeeter", "social"]
+}
