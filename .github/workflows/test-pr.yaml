@@ -2,8 +2,6 @@ name: Protocol Pull Request
 on:
   pull_request:
     branches: main
-    paths:
-      - "protocols/**/*"
 
 jobs:
   validate:
