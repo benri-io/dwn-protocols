@@ -34,7 +34,7 @@ standards, and then prefer to merge quickly.
    casual web search, should use tags and other site features intelligently,
    should be coherent and readable, and should not have broken hyperlinks or
    similar basic quality problems.
-2. _Content must be contributed under an MIT license._
+2. _Content must be contributed under an Apache 2 license._
 3. _Content must be factual, legal, clean, and minimally controversial._ This
    means we cannot accept material that infringes copyright or licenses, that is
    a political lightning rod, that is branded or styled out of harmony with the
