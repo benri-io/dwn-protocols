@@ -8,9 +8,6 @@ steps:
         -t $_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA \
         -f  website/Dockerfile website
     id: Build
-    volumes:
-      - name: "ssh"
-        path: /root/.ssh
 
   - name: gcr.io/cloud-builders/docker
     args:
