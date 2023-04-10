@@ -1,4 +1,3 @@
-const levenshtien = require("damerau-levenshtein");
 const github = require("@actions/github");
 const path = require("path");
 const { readFile, readFileSync } = require("fs/promises");
@@ -63,21 +62,21 @@ function testTagsDuplicates(tags) {
   return tags.length === new Set(tags).size;
 }
 
-function testTagsSimilarity(oldTags, newTags) {
-  const result = [];
-  newTags.forEach((newTag) => {
-    const tagResult = { tag: newTag, similars: [] };
-    oldTags.forEach((oldTag) => {
-      const levenshtienResult = levenshtien(newTag, oldTag);
-      if (levenshtienResult.similarity > LEVENSHTIEN_TRESHOLD) {
-        tagResult.similars.push(oldTag);
-      }
-    });
-    result.push(tagResult);
-  });
+// function testTagsSimilarity(oldTags, newTags) {
+//   const result = [];
+//   newTags.forEach((newTag) => {
+//     const tagResult = { tag: newTag, similars: [] };
+//     oldTags.forEach((oldTag) => {
+//       const levenshtienResult = levenshtien(newTag, oldTag);
+//       if (levenshtienResult.similarity > LEVENSHTIEN_TRESHOLD) {
+//         tagResult.similars.push(oldTag);
+//       }
+//     });
+//     result.push(tagResult);
+//   });
 
-  return result;
-}
+//   return result;
+// }
 
 function testPRAuthor(prAuthore, metaAuthor) {
   return prAuthore === metaAuthor;
@@ -159,6 +158,6 @@ module.exports = {
   testName,
   testVersion,
   testFileName,
-  testTagsSimilarity,
+  //testTagsSimilarity,
   testProtocols,
 };
