@@ -1,5 +1,7 @@
 # DWN Protocol Collection
 
+[![Protocol Pull Request](https://github.com/benri-io/dwn-protocols/actions/workflows/test-pr.yaml/badge.svg)](https://github.com/benri-io/dwn-protocols/actions/workflows/test-pr.yaml)
+
 **STATUS:** Work in Progress
 
 This repository contains a collection of compatible decentralized web node
