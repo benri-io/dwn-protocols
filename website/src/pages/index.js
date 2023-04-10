@@ -50,6 +50,12 @@ function getVersions(protocols, selected) {
 function SearchBar() {
   const root = getRootFromProtocolTree();
   var namespaces = buildNamespaces(root);
+  const [data, updateData] = useState();
+  useEffect(() => {
+    const proc = fetchMetadata().then((data) => {
+      updateData(data);
+    });
+  });
   return (
     <div className="searchBar container text-left">
       <div class="row">
@@ -87,12 +93,35 @@ function SearchBar() {
           <option></option>
         </select>
       </div>
+      <div class="row mt-5">
+        <CodeBlock
+          language="js"
+          title="/dev/yeeter/0.0.1/metadata.json"
+          showLineNumbers
+        >
+          {JSON.stringify(data, null, 2)}
+        </CodeBlock>
+      </div>
     </div>
   );
 }
 
 const yeeterFile =
   "https://raw.githubusercontent.com/benri-io/dwn-protocols/main/protocols/dev/tbd/yeeter/0.0.1/protocol.json";
+
+const yeeterMetadataFile =
+  "https://raw.githubusercontent.com/benri-io/dwn-protocols/main/protocols/dev/tbd/yeeter/0.0.1/metadata.json";
+
+async function fetchMetadata() {
+  const resp = await fetch(yeeterMetadataFile)
+    .then((response) => {
+      return response.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  return resp;
+}
 
 async function fetchProtocol() {
   const resp = await fetch(yeeterFile)
@@ -116,7 +145,7 @@ function ProtocolDisplay() {
     <div className="w-full h-full">
       <CodeBlock
         language="js"
-        title="/dev/yeeter/0.0.1/protocol.js"
+        title="/dev/yeeter/0.0.1/protocol.json"
         showLineNumbers
       >
         {JSON.stringify(data, null, 2)}
