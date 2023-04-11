@@ -2,8 +2,9 @@
 
 [![Protocol Pull Request](https://github.com/benri-io/dwn-protocols/actions/workflows/test-pr.yaml/badge.svg)](https://github.com/benri-io/dwn-protocols/actions/workflows/test-pr.yaml)
 
-**STATUS:** Work in Progress
+**STATUS:** DRAFT: Nothing is set in stone yet. Feedback/suggestions, even breaking large ones, are welcome.
 
+---
 This repository contains a collection of compatible decentralized web node
 protocols that can be used to build and operate decentralized web applications.
 The specification for protocols can be found
