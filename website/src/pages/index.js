@@ -107,10 +107,10 @@ function SearchBar() {
 }
 
 const yeeterFile =
-  "https://raw.githubusercontent.com/benri-io/dwn-protocols/main/protocols/dev/tbd/yeeter/0.0.1/protocol.json";
+  "https://raw.githubusercontent.com/benri-io/dwn-protocols/main/protocols/dev/yeeter/0.0.1/protocol.json";
 
 const yeeterMetadataFile =
-  "https://raw.githubusercontent.com/benri-io/dwn-protocols/main/protocols/dev/tbd/yeeter/0.0.1/metadata.json";
+  "https://raw.githubusercontent.com/benri-io/dwn-protocols/main/protocols/dev/yeeter/0.0.1/metadata.json";
 
 async function fetchMetadata() {
   const resp = await fetch(yeeterMetadataFile)
