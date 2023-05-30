@@ -141,16 +141,6 @@ function SearchBar() {
           <option></option>
         </select>
       </div>
-      {/* <div className="row mt-5"> */}
-      {/*   <CodeBlock */}
-      {/*     language="js" */}
-      {/*     title="/dev/yeeter/0.0.1/metadata.json" */}
-      {/*     showLineNumbers */}
-      {/*   > */}
-      {/*     {JSON.stringify(data, null, 2)} */}
-      {/*   </CodeBlock> */}
-      {/* </div> */}
-
       <MetadataDisplay />
     </div>
   );
@@ -197,11 +187,7 @@ function MetadataDisplay() {
   });
   return (
     <div className="w-full h-full">
-      <CodeBlock
-        language="js"
-        title="/dev/yeeter/0.0.1/metadata.json"
-        showLineNumbers
-      >
+      <CodeBlock language="js" title="Metadata" showLineNumbers>
         {JSON.stringify(data, null, 2)}
       </CodeBlock>
     </div>
@@ -217,11 +203,7 @@ function ProtocolDisplay() {
   });
   return (
     <div className="w-full h-full">
-      <CodeBlock
-        language="js"
-        title="/dev/yeeter/0.0.1/protocol.json"
-        showLineNumbers
-      >
+      <CodeBlock language="js" title="Protocol Definition" showLineNumbers>
         {JSON.stringify(data, null, 2)}
       </CodeBlock>
     </div>
