@@ -204,28 +204,6 @@ function ProtocolDisplay() {
   );
 }
 
-// export default function Home() {
-//   const { siteConfig } = useDocusaurusContext();
-//   return (
-//     <Layout
-//       title={`${siteConfig.title}`}
-//       description="Protocols Collections<head />"
-//     >
-//       <main className="h-screen align-middle	">
-//         <div className="grid grid-cols-4 gap-4 h-screen w-screen">
-//           <div className="col col-span-2 align-middle justify-center w-screen h-screen">
-//             Choose a protocol that you would want to use
-//             <SearchBar />
-//           </div>
-//           <div className="col-span-2">
-//             <ProtocolDisplay className="bg-slate-600" />
-//           </div>
-//         </div>
-//       </main>
-//     </Layout>
-//   );
-// }
-
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
