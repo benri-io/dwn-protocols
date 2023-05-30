@@ -5,6 +5,7 @@
 **STATUS:** DRAFT: Nothing is set in stone yet. Feedback/suggestions, even breaking large ones, are welcome.
 
 ---
+
 This repository contains a collection of compatible decentralized web node
 protocols that can be used to build and operate decentralized web applications.
 The specification for protocols can be found
@@ -19,7 +20,16 @@ true.
 
 ### Contributing
 
-We welcome contributions from the community to help improve and expand this repository. If you're interested in contributing, please see our [contribution](CONTRIBUTING.md) guidelines for more information.
+We welcome contributions from the community to help improve and expand this
+repository. If you're interested in contributing, please see our
+[contribution](CONTRIBUTING.md) guidelines for more information.
+
+### Discussions
+
+We have opened up [github
+discussions](https://github.com/benri-io/dwn-protocols/discussions) so people
+can discuss various protocol designs and ask questions. We encourage you to ask
+for clarification/information there.
 
 ### License
 
