@@ -78,6 +78,7 @@ function SearchBar() {
         alert(err);
       });
   }
+
   const root = getRootFromProtocolTree();
   var namespaces = buildNamespaces(root);
   // console.log(data);
@@ -140,31 +141,26 @@ function SearchBar() {
           <option></option>
         </select>
       </div>
-      <div className="row mt-5">
-        <CodeBlock
-          language="js"
-          title="/dev/yeeter/0.0.1/metadata.json"
-          showLineNumbers
-        >
-          {JSON.stringify(data, null, 2)}
-        </CodeBlock>
-      </div>
+      {/* <div className="row mt-5"> */}
+      {/*   <CodeBlock */}
+      {/*     language="js" */}
+      {/*     title="/dev/yeeter/0.0.1/metadata.json" */}
+      {/*     showLineNumbers */}
+      {/*   > */}
+      {/*     {JSON.stringify(data, null, 2)} */}
+      {/*   </CodeBlock> */}
+      {/* </div> */}
+
+      <MetadataDisplay />
     </div>
   );
 }
-
-const yeeterFile =
-  "https://raw.githubusercontent.com/benri-io/dwn-protocols/main/protocols/dev/yeeter/0.0.1/protocol.json";
-
-const yeeterMetadataFile =
-  "https://raw.githubusercontent.com/benri-io/dwn-protocols/main/protocols/dev/yeeter/0.0.1/metadata.json";
 
 function buildPath({ namespace, protocol, version }) {
   return `https://raw.githubusercontent.com/benri-io/dwn-protocols/main/protocols/${namespace}/${protocol}/${version}`;
 }
 
 async function fetchMetadata({ channel, protocol, version }) {
-  console.log("fetching metadata", channel, protocol, version);
   const resp = await fetch(
     buildPath({ namespace: channel, version: version, protocol: protocol }) +
       "/metadata.json"
@@ -190,6 +186,26 @@ async function fetchProtocol({ channel, protocol, version }) {
       console.log(error);
     });
   return resp;
+}
+
+function MetadataDisplay() {
+  const [data, updateData] = useState();
+  useEffect(() => {
+    const proc = fetchMetadata(getOptions()).then((data) => {
+      updateData(data);
+    });
+  });
+  return (
+    <div className="w-full h-full">
+      <CodeBlock
+        language="js"
+        title="/dev/yeeter/0.0.1/metadata.json"
+        showLineNumbers
+      >
+        {JSON.stringify(data, null, 2)}
+      </CodeBlock>
+    </div>
+  );
 }
 
 function ProtocolDisplay() {
