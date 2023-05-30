@@ -47,6 +47,17 @@ function getVersions(protocols, selected) {
   throw new Error("Could not find version for " + selected);
 }
 
+function getOptions() {
+  var channel = document.getElementById("channelSelect").value;
+  var protocol = document.getElementById("protocolSelect").value;
+  var version = document.getElementById("versionSelect").value;
+  return {
+    channel: channel,
+    protocol: protocol,
+    version: version,
+  };
+}
+
 function SearchBar() {
   const [data, updateData] = useState();
 
@@ -167,8 +178,11 @@ async function fetchMetadata({ channel, protocol, version }) {
   return resp;
 }
 
-async function fetchProtocol() {
-  const resp = await fetch(yeeterFile)
+async function fetchProtocol({ channel, protocol, version }) {
+  const resp = await fetch(
+    buildPath({ namespace: channel, version: version, protocol: protocol }) +
+      "/metadata.json"
+  )
     .then((response) => {
       return response.json();
     })
@@ -181,7 +195,7 @@ async function fetchProtocol() {
 function ProtocolDisplay() {
   const [data, updateData] = useState();
   useEffect(() => {
-    const proc = fetchProtocol().then((data) => {
+    const proc = fetchProtocol(getOptions()).then((data) => {
       updateData(data);
     });
   });
