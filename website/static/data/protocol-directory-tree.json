@@ -36,8 +36,7 @@
             ]
           }
         ]
-      },
-      { "type": "directory", "name": "stable" }
+      }
     ]
   },
   { "type": "report", "directories": 4, "files": 2 }
