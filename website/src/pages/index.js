@@ -181,7 +181,7 @@ async function fetchMetadata({ channel, protocol, version }) {
 async function fetchProtocol({ channel, protocol, version }) {
   const resp = await fetch(
     buildPath({ namespace: channel, version: version, protocol: protocol }) +
-      "/metadata.json"
+      "/protocol.json"
   )
     .then((response) => {
       return response.json();
