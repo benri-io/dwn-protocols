@@ -1,0 +1,14 @@
+{
+  "name": "dinger",
+  "protocol_path": "protocol.json",
+  "description": "A simple DWN protocol that dings people",
+  "long_description": "",
+  "version": "v0.0.1",
+  "authors": [
+    {
+      "name": "tbd",
+      "email": ""
+    }
+  ],
+  "tags": ["dinger", "social"]
+}
