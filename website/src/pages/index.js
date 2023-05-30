@@ -81,12 +81,6 @@ function SearchBar() {
 
   const root = getRootFromProtocolTree();
   var namespaces = buildNamespaces(root);
-  // console.log(data);
-  // useEffect(() => {
-  //   const proc = fetchMetadata().then((data) => {
-  //     updateData(data);
-  //   });
-  // });
   return (
     <div className="searchBar container text-left">
       <div className="row">
@@ -210,21 +204,44 @@ function ProtocolDisplay() {
   );
 }
 
+// export default function Home() {
+//   const { siteConfig } = useDocusaurusContext();
+//   return (
+//     <Layout
+//       title={`${siteConfig.title}`}
+//       description="Protocols Collections<head />"
+//     >
+//       <main className="h-screen align-middle	">
+//         <div className="grid grid-cols-4 gap-4 h-screen w-screen">
+//           <div className="col col-span-2 align-middle justify-center w-screen h-screen">
+//             Choose a protocol that you would want to use
+//             <SearchBar />
+//           </div>
+//           <div className="col-span-2">
+//             <ProtocolDisplay className="bg-slate-600" />
+//           </div>
+//         </div>
+//       </main>
+//     </Layout>
+//   );
+// }
+
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout
-      title={`${siteConfig.title}`}
-      description="Protocols Collections<head />"
-    >
-      <main className="h-screen align-middle	">
-        <div className="grid grid-cols-4 gap-4 h-screen w-screen">
-          <div className="col col-span-2 align-middle justify-center w-screen h-screen">
-            Choose a protocol that you would want to use
-            <SearchBar />
-          </div>
-          <div className="col-span-2">
-            <ProtocolDisplay className="bg-slate-600" />
+    <Layout title={`${siteConfig.title}`} description="Protocols Collections">
+      <main className="flex flex-col items-center justify-center h-full">
+        <div className="w-full">
+          <h2 className="text-left mb-4">
+            Choose a protocol that you would like to use
+          </h2>
+          <div className="flex flex-col md:flex-row justify-center">
+            <div id="protocolselector" className="md:w-1/2">
+              <SearchBar />
+            </div>
+            <div className="md:w-1/2 mt-4 md:mt-0">
+              <ProtocolDisplay className="bg-slate-600 w-full" />
+            </div>
           </div>
         </div>
       </main>
