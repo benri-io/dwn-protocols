@@ -1,15 +1,44 @@
 [
-  {"type":"directory","name":"protocols","contents":[
-    {"type":"directory","name":"dev","contents":[
-      {"type":"directory","name":"yeeter","contents":[
-        {"type":"directory","name":"0.0.1","contents":[
-          {"type":"file","name":"metadata.json"},
-          {"type":"file","name":"protocol.json"}
-      ]}
-    ]}
-  ]},
-    {"type":"directory","name":"stable"}
-  ]}
-,
-  {"type":"report","directories":4,"files":2}
+  {
+    "type": "directory",
+    "name": "protocols",
+    "contents": [
+      {
+        "type": "directory",
+        "name": "dev",
+        "contents": [
+          {
+            "type": "directory",
+            "name": "yeeter",
+            "contents": [
+              {
+                "type": "directory",
+                "name": "0.0.1",
+                "contents": [
+                  { "type": "file", "name": "metadata.json" },
+                  { "type": "file", "name": "protocol.json" }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "directory",
+            "name": "dinger",
+            "contents": [
+              {
+                "type": "directory",
+                "name": "0.0.1",
+                "contents": [
+                  { "type": "file", "name": "metadata.json" },
+                  { "type": "file", "name": "protocol.json" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      { "type": "directory", "name": "stable" }
+    ]
+  },
+  { "type": "report", "directories": 4, "files": 2 }
 ]

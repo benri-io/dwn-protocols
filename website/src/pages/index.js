@@ -48,33 +48,65 @@ function getVersions(protocols, selected) {
 }
 
 function SearchBar() {
+  const [data, updateData] = useState();
+
+  function update() {
+    var channel = document.getElementById("channelSelect").value;
+    var protocol = document.getElementById("protocolSelect").value;
+    var version = document.getElementById("versionSelect").value;
+    fetchMetadata({
+      channel: channel,
+      protocol: protocol,
+      version: version,
+    })
+      .then(function (metadata) {
+        console.log(metadata);
+        updateData(metadata);
+      })
+      .catch(function (err) {
+        alert(err);
+      });
+  }
   const root = getRootFromProtocolTree();
   var namespaces = buildNamespaces(root);
-  const [data, updateData] = useState();
-  useEffect(() => {
-    const proc = fetchMetadata().then((data) => {
-      updateData(data);
-    });
-  });
+  // console.log(data);
+  // useEffect(() => {
+  //   const proc = fetchMetadata().then((data) => {
+  //     updateData(data);
+  //   });
+  // });
   return (
     <div className="searchBar container text-left">
-      <div class="row">
-        <label for="channelSelect" className="col">
+      <div className="row">
+        <label htmlFor="channelSelect" className="col">
           Channel
         </label>
         <select className="form-select col" id="channelSelect">
-          <option selected>{namespaces[0].name}</option>
+          <option defaultValue>{namespaces[0].name}</option>
           {namespaces.slice(1).map((ns) => {
-            return <option value="{ns.name}"> {ns.name} </option>;
+            {
+              return (
+                <option key="{ns.name}" value="{ns.name}" onChange={update}>
+                  {" "}
+                  {ns.name}{" "}
+                </option>
+              );
+            }
           })}
         </select>
       </div>
-      <div class="row">
-        <label for="protocolSearch" className="col">
+      <div className="row">
+        <label htmlFor="protocolSearch" className="col">
           Protocol
         </label>
-        <select className="form-select col" id="protocolSelect">
-          <option selected>{getProtocols(namespaces, "dev")[0].name}</option>
+        <select
+          className="form-select col"
+          id="protocolSelect"
+          onChange={update}
+        >
+          <option defaultValue>
+            {getProtocols(namespaces, "dev")[0].name}
+          </option>
           <option>
             {getProtocols(namespaces, "dev")
               .slice(1)
@@ -84,16 +116,20 @@ function SearchBar() {
           </option>
         </select>
       </div>
-      <div class="row">
-        <label for="versionSelect" className="col">
+      <div className="row">
+        <label htmlFor="versionSelect" className="col">
           Version
         </label>
-        <select className="form-select col" id="protocolSelect">
-          <option selected>0.0.1</option>
+        <select
+          className="form-select col"
+          id="versionSelect"
+          onChange={update}
+        >
+          <option defaultValue>0.0.1</option>
           <option></option>
         </select>
       </div>
-      <div class="row mt-5">
+      <div className="row mt-5">
         <CodeBlock
           language="js"
           title="/dev/yeeter/0.0.1/metadata.json"
@@ -112,8 +148,16 @@ const yeeterFile =
 const yeeterMetadataFile =
   "https://raw.githubusercontent.com/benri-io/dwn-protocols/main/protocols/dev/yeeter/0.0.1/metadata.json";
 
-async function fetchMetadata() {
-  const resp = await fetch(yeeterMetadataFile)
+function buildPath({ namespace, protocol, version }) {
+  return `https://raw.githubusercontent.com/benri-io/dwn-protocols/main/protocols/${namespace}/${protocol}/${version}`;
+}
+
+async function fetchMetadata({ channel, protocol, version }) {
+  console.log("fetching metadata", channel, protocol, version);
+  const resp = await fetch(
+    buildPath({ namespace: channel, version: version, protocol: protocol }) +
+      "/metadata.json"
+  )
     .then((response) => {
       return response.json();
     })
