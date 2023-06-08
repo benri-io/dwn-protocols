@@ -24,6 +24,13 @@ We welcome contributions from the community to help improve and expand this
 repository. If you're interested in contributing, please see our
 [contribution](CONTRIBUTING.md) guidelines for more information.
 
+### Inspirations and Acknowledgments
+
+We would like to acknowledge the following inspirations in building this project.
+
+- [Melpa](https://github.com/melpa/melpa)
+- [DIDComm](https://github.com/decentralized-identity/didcomm.org)
+
 ### Discussions
 
 We have opened up [github
