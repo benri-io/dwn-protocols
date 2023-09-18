@@ -10,7 +10,7 @@
   "dependencies": {
     "@actions/core": "^1.4.0",
     "@actions/github": "^5.0.0",
-    "remark-cli": "^10.0.0",
+    "remark-cli": "^12.0.0",
     "remark-frontmatter": "^4.0.0",
     "remark-lint": "^9.0.0",
     "remark-lint-no-dead-urls": "^1.1.0",
