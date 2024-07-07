@@ -1,5 +1,7 @@
 # DWN Protocol Collection
 
+**This repository is no longer being maintained. Please see [https://github.com/andorsk/dwn-protocols](https://github.com/andorsk/dwn-protocols)** for the updated version.
+
 [![Protocol Pull Request](https://github.com/benri-io/dwn-protocols/actions/workflows/test-pr.yaml/badge.svg)](https://github.com/benri-io/dwn-protocols/actions/workflows/test-pr.yaml)
 
 **STATUS:** DRAFT: Nothing is set in stone yet. Feedback/suggestions, even breaking large ones, are welcome.
